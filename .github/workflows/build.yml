@@ -190,4 +190,5 @@ jobs:
           asset_path: ./coco_luna_admin_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_name: coco_luna_admin_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_content_type: ${{ matrix.asset_content_type }}
+          token: ${{ secrets.GH_TOKEN }}
           overwrite: true
