@@ -180,6 +180,7 @@ jobs:
           asset_name: coco_luna_admin_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_content_type: ${{ matrix.asset_content_type }}
           overwrite: true
+      - run: echo ${{ needs.new_release.outputs.upload_url }} ${{ needs.new_release.outputs.upload_url_origin }}
       # Upload the build on origin.
       - name: Add packaged build to release on origin
         id: upload_release_asset_origin
