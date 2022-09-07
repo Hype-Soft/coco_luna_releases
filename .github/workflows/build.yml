@@ -50,13 +50,13 @@ jobs:
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_REPOSITORY: ${{ secrets.SOURCE_REPO }}
+          GITHUB_REPOSITORY: "hype-soft/coco_luna_admin"
         with:
           token: ${{ secrets.GH_TOKEN }}
           tag_name: ${{ github.event.inputs.version }}
           draft: ${{ github.event.inputs.draft }}
           prerelease: ${{ github.event.inputs.prerelease }}
-          repository: ${{ secrets.SOURCE_REPO }}
+          repository: "hype-soft/coco_luna_admin"
           generate_release_notes: true
 
   create-build:
@@ -181,7 +181,6 @@ jobs:
           asset_name: coco_luna_admin_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_content_type: ${{ matrix.asset_content_type }}
           overwrite: true
-      - run: echo ${{ needs.new_release.outputs.upload_url }} ${{ needs.new_release.outputs.upload_url_origin }}
       # Upload the build on origin.
       - name: Add packaged build to release on origin
         id: upload_release_asset_origin
