@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Draft release with release notes
         id: create_release
-        uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
@@ -47,9 +47,10 @@ jobs:
           generate_release_notes: true
       - name: Draft release on origin
         id: create_release_origin
-        uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_REPOSITORY: ${{ secrets.SOURCE_REPO }}
         with:
           tag_name: ${{ github.event.inputs.version }}
           draft: ${{ github.event.inputs.draft }}
