@@ -181,7 +181,7 @@ jobs:
           overwrite: true
       # Upload the build on origin.
       - name: Add packaged build to release on origin
-        id: upload_release_asset
+        id: upload_release_asset_origin
         uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
